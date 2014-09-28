@@ -1,0 +1,44 @@
+<?php
+
+namespace Balongo\UserBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Balongo\AdminBundle\Entity\Usuario;
+use Balongo\AdminBundle\Entity\Comunidad;
+use Balongo\AdminBundle\Entity\Mensaje;
+use Balongo\AdminBundle\Entity\Archivo;
+
+class DefaultController extends Controller
+{
+    public function rMensajeAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $mensaje = $em->find('AdminBundle:Mensaje', $id);
+        
+        if ( $this->getUser()->getRol() == 1 || in_array( $mensaje->getComunidad(), $this->getUser()->getComunidades() ) )
+        {
+        		return $this->render(
+        			'UserBundle:Default:Mensaje.html.twig',
+			 		array(
+			 			'mensaje' => $mensaje
+			 		)
+    			);
+        }
+        else
+        {
+        		return $this->redirect($this->generateUrl('user_index'));
+        }
+    }
+    
+    public function uPerfilAction()
+    {
+    	return $this->render(
+     		'UserBundle:Default:Mensaje.html.twig',
+		 	array(
+				'usuario' => $this->getUser()
+	 		)
+		);
+    }
+}

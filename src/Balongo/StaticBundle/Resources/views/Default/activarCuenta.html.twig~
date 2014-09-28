@@ -1,0 +1,66 @@
+{% set pagina = 'activar_cuenta' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+
+{% block title %} | Activar Cuenta{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="jumbotron backtexture-login">
+	<div class="row">
+		
+		<div class="login-form-container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+			<form action="{{ path('static_user_activar', {'id': id, 'salt': salt}) }}" method="post">
+				{% for f in form %}
+					{{ form_row(f) }}
+				{% endfor %}
+				<div id="security-info" class="form-group">
+					Nivel de seguridad: <span>-</span>
+				</div>
+				<div class="text-center">
+					<input type="submit" value="Activar cuenta" class="btn btn-primary" />
+				</div>
+			</form>
+		</div><!-- /.login-form-container -->
+		
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/static/js/static.js') }}"></script>
+<script type="text/javascript">
+	$('form > div').each(function(i, v){
+		$(this).addClass('form-group');
+	});
+	$('form input[type="password"]').eq(0).bind('keyup', function(e){
+		e.preventDefault();
+		var s = $(this).val(),
+			 e = $('#security-info span'),
+			 c = 0;
+		c += ( s.length >= 6 )? 1: 0;
+		c += ( s.match(/[0-9]/) )? 1: 0;
+		c += ( s.match(/[A-Z]/) )? 1: 0;
+		c += ( s.match(/[a-z]/) )? 1: 0;
+		c += ( s.match(/[\W]/) )? 1: 0;
+		
+		switch (c) {
+			case 0: 	$(e).text('Nulo').css('color', '#d9534f'); 		break;
+			case 1: 	$(e).text('Pobre').css('color', '#E45635'); 		break;
+			case 2: 	$(e).text('Medio').css('color', '#EAC617'); 		break;
+			case 3: 	$(e).text('Normal').css('color', '#009EE3'); 		break;
+			case 4: 	$(e).text('Alto').css('color', '#1D70B7'); 		break;
+			case 5: 	$(e).text('Muy alto').css('color', '#5cb85c'); 	break;
+		}
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,82 @@
+{% set pagina = 'conocenos' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Con&oacute;cenos{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		
+		<div class="col-xs-12 text-center" id="conotitl">
+		
+			<h1>Desde hace 30 a&ntilde;os nuestro distintiva ha sido la transparencia y cercan&iacute;a en el ejercicio de nuestras funciones.</h1>
+			<h2>Somos un equipo joven, din&aacute;mico y experimentado que solamente busca una finalidad: <strong>tu tranquilidad</strong>.</h2>
+		
+		</div>
+		
+	</div>
+</div>
+<div class="jumbotron backtexture" id="workcont">
+	<div class="row">
+		
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 worker">
+			<img src="{{ asset('bundles/static/img/default-worker.jpg') }}" alt="Imagen del trabajador" />
+			<h3>Nombre Apellidos</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex justo. Nullam molestie gravida elit at vehicula. Vestibulum consequat, dolor nec molestie imperdiet, tortor lectus ultrices tellus, eu mattis quam velit at elit. Phasellus in sollicitudin nulla. Nulla volutpat facilisis sem non pellentesque. Donec posuere aliquam dictum. Etiam neque sem, faucibus vitae est sed, dictum dictum libero. Aenean ullamcorper enim at mauris gravida, ut tincidunt nisi condimentum. Maecenas sit amet massa elit. Curabitur in nisl quis nibh tristique vehicula.
+			</p>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 worker">
+			<img src="{{ asset('bundles/static/img/default-worker.jpg') }}" alt="Imagen del trabajador" />
+			<h3>Nombre Apellidos</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex justo. Nullam molestie gravida elit at vehicula. Vestibulum consequat, dolor nec molestie imperdiet, tortor lectus ultrices tellus, eu mattis quam velit at elit. Phasellus in sollicitudin nulla. Nulla volutpat facilisis sem non pellentesque. Donec posuere aliquam dictum. Etiam neque sem, faucibus vitae est sed, dictum dictum libero. Aenean ullamcorper enim at mauris gravida, ut tincidunt nisi condimentum. Maecenas sit amet massa elit. Curabitur in nisl quis nibh tristique vehicula.
+			</p>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 worker">
+			<img src="{{ asset('bundles/static/img/default-worker.jpg') }}" alt="Imagen del trabajador" />
+			<h3>Nombre Apellidos</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex justo. Nullam molestie gravida elit at vehicula. Vestibulum consequat, dolor nec molestie imperdiet, tortor lectus ultrices tellus, eu mattis quam velit at elit. Phasellus in sollicitudin nulla. Nulla volutpat facilisis sem non pellentesque. Donec posuere aliquam dictum. Etiam neque sem, faucibus vitae est sed, dictum dictum libero. Aenean ullamcorper enim at mauris gravida, ut tincidunt nisi condimentum. Maecenas sit amet massa elit. Curabitur in nisl quis nibh tristique vehicula.
+			</p>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 worker">
+			<img src="{{ asset('bundles/static/img/default-worker.jpg') }}" alt="Imagen del trabajador" />
+			<h3>Nombre Apellidos</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex justo. Nullam molestie gravida elit at vehicula. Vestibulum consequat, dolor nec molestie imperdiet, tortor lectus ultrices tellus, eu mattis quam velit at elit. Phasellus in sollicitudin nulla. Nulla volutpat facilisis sem non pellentesque. Donec posuere aliquam dictum. Etiam neque sem, faucibus vitae est sed, dictum dictum libero. Aenean ullamcorper enim at mauris gravida, ut tincidunt nisi condimentum. Maecenas sit amet massa elit. Curabitur in nisl quis nibh tristique vehicula.
+			</p>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 worker">
+			<img src="{{ asset('bundles/static/img/default-worker.jpg') }}" alt="Imagen del trabajador" />
+			<h3>Nombre Apellidos</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex justo. Nullam molestie gravida elit at vehicula. Vestibulum consequat, dolor nec molestie imperdiet, tortor lectus ultrices tellus, eu mattis quam velit at elit. Phasellus in sollicitudin nulla. Nulla volutpat facilisis sem non pellentesque. Donec posuere aliquam dictum. Etiam neque sem, faucibus vitae est sed, dictum dictum libero. Aenean ullamcorper enim at mauris gravida, ut tincidunt nisi condimentum. Maecenas sit amet massa elit. Curabitur in nisl quis nibh tristique vehicula.
+			</p>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 worker">
+			<img src="{{ asset('bundles/static/img/default-worker.jpg') }}" alt="Imagen del trabajador" />
+			<h3>Nombre Apellidos</h3>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu ex justo. Nullam molestie gravida elit at vehicula. Vestibulum consequat, dolor nec molestie imperdiet, tortor lectus ultrices tellus, eu mattis quam velit at elit. Phasellus in sollicitudin nulla. Nulla volutpat facilisis sem non pellentesque. Donec posuere aliquam dictum. Etiam neque sem, faucibus vitae est sed, dictum dictum libero. Aenean ullamcorper enim at mauris gravida, ut tincidunt nisi condimentum. Maecenas sit amet massa elit. Curabitur in nisl quis nibh tristique vehicula.
+			</p>
+		</div>
+		
+		
+	</div>
+</div>
+<div class="jumbotron" id="offipic"></div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/static/js/index.js') }}"></script>
+{% endblock %}

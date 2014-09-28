@@ -1,0 +1,27 @@
+static_index:
+    path:     /
+    defaults: { _controller: StaticBundle:Default:index }
+    
+static_login:
+    path:     /acceso
+    defaults: { _controller: StaticBundle:Default:login }
+
+static_conocenos:
+    path:     /conocenos
+    defaults: { _controller: StaticBundle:Default:conocenos }
+    
+static_contacto:
+    path:     /contacto
+    defaults: { _controller: StaticBundle:Default:contacto }
+    
+static_legal:
+    path:     /aviso-legal-cookies
+    defaults: { _controller: StaticBundle:Default:legal }
+    
+static_ajax_form:
+    path:     /ajax/contacto-request
+    defaults: { _controller: StaticBundle:Default:contactoForm }
+    
+static_user_activar:
+    path:     /activar/{id}/{salt}
+    defaults: { _controller: StaticBundle:Default:activarForm }

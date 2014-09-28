@@ -1,0 +1,185 @@
+{% set pagina = 'inicio' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Portada{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="jumbotron" id="jumbo-slider">
+	
+		<div id="carousel-loader">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64" fill="white">
+				<circle cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(45 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.125s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(90 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.25s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(135 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.375s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(180 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.5s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(225 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.625s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(270 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.75s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(315 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.875s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+				<circle transform="rotate(180 16 16)" cx="16" cy="3" r="0">
+					<animate attributeName="r" values="0;3;0;0" dur="1s" repeatCount="indefinite" begin="0.5s" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" />
+				</circle>
+			</svg>
+		</div>
+			
+		<div class="carousel-container">
+			
+			<div class="carousel-slide">
+				<h1 class="slide-item text-center slide-item1">
+					30 a&ntilde;os de experiencia
+				</h1>
+				<p class="slide-item slide-item2">
+					En <strong>Balongo</strong> sabemos que lo más importante en nuestro sector es la calidad de vida y la tranquilidad de todos y cada uno de nuestros clientes.
+				</p>
+				<div class="slide-item text-center slide-item3">
+					<a href="{{ path('static_contacto') }}" class="btn btn-primary">
+						¿Est&aacute;s interesado?
+					</a>
+				</div>
+			</div>
+			
+			
+			
+			
+			<div class="carousel-slide">
+				<h1 class="slide-item text-center slide-item1">
+					Profesionales de confianza
+				</h1>
+				<p class="slide-item slide-item2">
+					Nuestra filosofía de trabajo es combinar la profesionalidad de un cualificado y experimentado equipo junto con la confianza y el trato familiar que merecen nuestros clientes.
+				</p>
+				<div class="slide-item text-center slide-item3">
+					<a href="{{ path('static_conocenos') }}" class="btn btn-primary">
+						Conoce nuestro equipo
+					</a>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			<div class="carousel-slide">
+				<h1 class="slide-item text-center slide-item1">
+					F&aacute;cil y r&aacute;pido
+				</h1>
+				<p class="slide-item slide-item2">
+					Te ofrecemos un &aacute;rea virtual d&oacute;nde podr&aacute;s consultar y descargar toda tu documentaci&oacute;n, en cualquier lugar, en cualquier momento.
+				</p>
+				<div class="slide-item text-center slide-item3">
+					<a href="{{ path('static_login') }}" class="btn btn-primary">
+						Acceso clientes
+					</a>
+				</div>
+			</div>
+		
+			<div id="slide-loader"></div>
+			
+		</div>	
+	
+</div>
+<div class="container">
+	<div class="row" id="inititl">
+		<h2 class="col-xs-12 text-center"><strong>Balongo</strong> es sin&oacute;nimo de profesionalidad, confianza y trato cercano.</h2>
+		<h3 class="col-xs-12 text-center">&Oacute;lvidate de tener que gestionar toda una comunidad de propietarios, estar&aacute;s en buenas manos.</h3>
+	</div>
+</div>
+<div class="jumbotron backtexture" id="offercont">
+	<div class="row">
+		<h2 class="col-xs-12 text-center">En <strong>Balongo</strong> te ofrecemos:</h2>
+	</div>
+	<div id="logowraper">
+		<div class="row">
+			<div class="col-lg-offset-2 col-lg-4 col-md-offset-2 col-md-4 col-sm-offset-1 col-sm-5 col-xs-12 offer-item">
+				<span class="glyphicon glyphicon-comment"></span>
+				<p>
+					Contacto directo con los propietarios y empleados de las comunidades para de esta manera detectar los problemas de manera inmediata y tomar las soluciones correspondientes.
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 offer-item">
+				<p>
+					Bajo porcentaje de morosidad debido al seguimiento exhaustivo del cobro de recibos y un despacho de abogados que de manera continua sigue las situaciones de los procedimientos judiciales.
+				</p>
+				<span class="glyphicon glyphicon-ok"></span>
+			</div>
+		</div>
+		<div class="row">	
+			<div class="col-lg-offset-2 col-lg-4 col-md-offset-2 col-md-4 col-sm-offset-1 col-sm-5 col-xs-12 move-left offer-item">
+				<span class="glyphicon glyphicon-search"></span>
+				<p>
+					Expedici&oacute;n del acta de la Juntas y env&iacute;o de forma inmediata. As&iacute; como el seguimiento y control de la ejecución de los acuerdos adoptados.
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 move-right offer-item">
+				<p>
+					Visitas semanales y cada vez que es necesario a los edificios administrados. Adem&aacute;s, gestiones gratuitas ante Organismos Oficiales y empresas suministradoras de servicios.
+				</p>
+				<span class="glyphicon glyphicon-wrench"></span>
+			</div>
+		</div>
+		<div class="row">	
+			<div class="col-lg-offset-2 col-lg-4 col-md-offset-2 col-md-4 col-sm-offset-1 col-sm-5 col-xs-12 move-left offer-item">
+				<span class="glyphicon glyphicon-star"></span>
+				<p>
+					Equipo de proveedores acorde a las exigencias del despacho utilizando los de mayor prestigio. Exigencia a los proveedores que se encuentren al corriente de pago.
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 move-right offer-item">
+				<p>
+					Nos encargamos de la gestión y tratamiento de los siniestros con las Compañías Aseguradoras y que se producen en el seno de la Comunidad.
+				</p>
+				<span class="glyphicon glyphicon-briefcase"></span>
+			</div>
+		</div>
+		<div class="row">	
+			<div class="col-lg-offset-2 col-lg-4 col-md-offset-2 col-md-4 col-sm-offset-1 col-sm-5 col-xs-12 offer-item">
+				<span class="glyphicon glyphicon-map-marker"></span>
+				<p>
+					Sala de Juntas propia con capacidad para 40 personas y te atendemos en seis idiomas: espa&ntilde;ol, ingl&eacute;s, franc&eacute;s, alem&aacute;n, italiano y valenciano.
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 offer-item">
+				<p>
+					Honorarios en función del baremo del Colegio Territorial de Administraciones de Fincas de Alicante y su Provincia. Colegiado número 1372.
+				</p>
+				<span class="glyphicon glyphicon-user"></span>
+			</div>
+		</div>
+		<img src="{{ asset('bundles/static/img/balongo-logo-mini.png') }}" alt="Logotipo de Administraci&oacute;n de fincas BALONGO" id="spinner-logo" />
+	</div>
+	<div class="row">
+		<div class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
+			<h3 id="btmcon" class="text-center">¡No esperes m&aacute;s y ponte en <a href="{{ path('static_contacto') }}">CONTACTO</a>!</h3>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/static/js/index.js') }}"></script>
+{% endblock %}

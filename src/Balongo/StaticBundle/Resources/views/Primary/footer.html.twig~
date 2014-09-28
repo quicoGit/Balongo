@@ -1,0 +1,18 @@
+<footer class="jumbotron" data-background="{{ asset('bundles/static/img/balongo-logo-mini.png') }}">
+	<div class="row">
+		<ul class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+			<li><a{% if pagina == 'inicio' %} class="active"{% endif %} href="{{ path('static_index') }}">BALONGO</a></li>
+			<li><a{% if pagina == 'conocenos' %} class="active"{% endif %} href="{{ path('static_conocenos') }}">CON&Oacute;CENOS</a></li>
+			<li><a{% if pagina == 'contacto' %} class="active"{% endif %} href="{{ path('static_contacto') }}">CONTACTO</a></li>
+			{% if %}
+			<li><a{% if pagina == 'login' %} class="active"{% endif %} href="{{ path('static_login') }}">ACCEDER</a>
+			{% endif %}
+		</ul>
+		<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right">
+			<img src="{{ asset('bundles/static/img/balongo-logo-mini-footer.png') }}" alt="Logotipo de Administración de Fincas Balongo" />
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right mrgtop">
+			<a href="{{ path('static_legal') }}">AVISO LEGAL &amp; COOKIES</a> - &copy; 2012 Balongo
+		</div>
+	</div>
+</footer>

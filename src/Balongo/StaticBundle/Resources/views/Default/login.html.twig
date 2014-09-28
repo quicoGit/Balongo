@@ -1,0 +1,73 @@
+{% set pagina = 'login' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+
+{% block title %} | Acceso{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="jumbotron backtexture-login">
+	<div class="row">
+		
+		<div class="col-xs-12">
+			<p class="alert alert-success">
+				Tu cuenta de usuario ha sido activada con &eacute;xito. Accede!
+			</p>
+		</div>
+		
+		<div class="login-form-container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+			<form action="{{ path('usuario_login_check') }}" method="post">
+				{% if error | default(false) %}
+					<div class="alert-danger">{{ error.message }}</div>
+				{% endif %}
+				<div class="form-group">
+					<label for="_username">Email</label>
+					<input type="email" id="_username" name="_username" class="form-control" placeholder="email@ejemplo.com" value="{{ last_username | default('') }}" />
+				</div>
+				<div class="form-group">
+					<label for="_password">Contrase&ntilde;a</label>
+					<input type="password" id="_password" name="_password" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="_remember_me">
+						<input type="checkbox" name="_remember_me" id="_remember_me" /> Recu&eacute;rdame
+					</label>
+				</div>
+				<div class="form-group text-center">
+					<input type="submit" id="_submit" name="_submit" class="btn btn-primary" value="Entrar" />
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+				</div>
+			</form>
+			<div class="text-center"><a href="#">He olvidado mi contraseña</a></div>
+		</div><!-- /.login-form-container -->
+		
+		
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/static/js/static.js') }}"></script>
+{% if app.session.flashbag.get('success') == true %}
+<script>
+	(function(){
+		$(document).ready(function(){
+			$('.alert-success').slideDown(400, function(){
+				window.setTimeout(function(){
+					$('.alert-success').slideUp(400);
+				}, 4000);
+			});
+		});
+	})();
+</script>
+{% endif %}
+{% endblock %}

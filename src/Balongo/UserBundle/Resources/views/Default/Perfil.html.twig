@@ -1,0 +1,95 @@
+{% set pagina = 'perfil' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Perfil{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/user/css/userStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		
+		<div class="col-xs-12">
+			<div class="alert alert-success"></div>
+			<div class="alert alert-warning"></div>
+		</div>
+	
+		<div id="btnCont" class="col-xs-12">
+			<span>Modificar:&nbsp;&nbsp;&nbsp;</span>
+			<button class="btn btn-primary active" data-toggle="datos">Datos personales</button>
+			<button class="btn btn-info" data-toggle="email">Email</button>
+			<button class="btn btn-info" data-toggle="pass">Contrase&ntilde;a</button>
+		</div>
+		<div id="datos" class="tab active col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
+			<form data-action="{{ path('user_perfil_datos') }}">
+				<div class="form-group">
+					<label for="_nombre">Nombre</label>
+					<input type="text" class="form-control" name="_nombre" id="_nombre" required="required" value="{{ usuario.nombre }}" />
+				</div>
+				<div class="form-group">
+					<label for="_apellidos">Apellidos</label>
+					<input type="text" class="form-control" name="_apellidos" id="_apellidos" required="required" value="{{ usuario.apellidos }}" />
+				</div>
+				<div class="form-group">
+					<label for="_emailing">
+						<input type="checkbox" class="form-input" name="_emailing" id="_emailing" {% if usuario.emailing %}checked="checked" {% endif %}/>
+						Deseo recibir notificaciones a mi direcci&oacute;n de correo electr&oacute;nico.
+					</label>
+				</div>
+				<div class="form-group text-right">
+					<input type="submit" class="btn btn-primary" value="Enviar" />
+				</div>
+			</form>
+		</div>
+		<div id="pass" class="tab col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
+			<form data-action="{{ path('user_perfil_email') }}">
+				<div class="form-group">
+					<label for="_pass_antiguo">Contrase&ntilde;a actual</label>
+					<input type="password" class="form-control" name="_pass_antiguo" id="_pass_antiguo" required="required" />
+				</div>
+				<div class="form-group">
+					<label for="_pass_nuevo_1">Contrase&ntilde;a nueva</label>
+					<input type="password" class="form-control" name="_pass_nuevo_1" id="_pass_nuevo_1" required="required" />
+				</div>
+				<div class="form-group">
+					<label for="_pass_nuevo_2">Repite contrase&ntilde;a</label>
+					<input type="password" class="form-control" name="_pass_nuevo_2" id="_pass_nuevo_2" required="required" />
+				</div>
+				<div id="security-info" class="form-group text-center">
+					Nivel de seguridad: <span>-</span>
+				</div>
+				<div class="form-group text-right">
+					<input type="submit" class="btn btn-primary" value="Enviar" />
+				</div>
+			</form>
+		</div>
+		<div id="email" class="tab col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-12">
+			<form data-action="{{ path('user_perfil_pass') }}">
+				<div class="form-group">
+					<label for="_pass">Contrase&ntilde;a</label>
+					<input type="password" class="form-control" name="_pass" id="_pass" required="required" />
+				</div>
+				<div class="form-group">
+					<label for="_email">Nueva direcci&oacute;n de email</label>
+					<input type="email" class="form-control" name="_email" id="_email" required="required" />
+				</div>
+				<div class="form-group text-right">
+					<input type="submit" class="btn btn-primary" value="Enviar" />
+				</div>
+			</form>
+		</div>
+		
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/user/js/user.js') }}"></script>
+{% endblock %}

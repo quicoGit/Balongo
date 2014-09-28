@@ -1,0 +1,88 @@
+{% set pagina = 'contacto' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Contacto{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="jumbotron" id="balongoMap"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 text-center" id="conotitl">
+			<h1>P&oacute;ngase en contacto con <strong>Balongo</strong> y le informaremos detalladamente de nuestros servicios para la Administraci&oacute;n de comunidades de propietarios.</h1>
+			<h2>Rellene el siguiente formulario, o bien, utilice los medios tradicionales de contacto.</h2>
+		</div>
+	</div>
+</div>
+<div class="jumbotron backtexture">
+	<div class="row">
+		<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 text-right">
+			<h2>Vis&iacute;tanos en:</h2>
+			<address id="contadd">
+				<p>Avda. Europa 8, CC La Noria CA-15</p>
+				<p>03503, BENIDORM, ALICANTE</p>
+				<p>+34 96 680 37 10 <span class="glyphicon glyphicon-earphone"></span></p>
+				<p>+34 96 681 28 66 <span class="glyphicon glyphicon-print"></span></p>
+				<p>fincas@balongo.eu <span class="glyphicon glyphicon-envelope"></span></p>
+			</address>
+		</div>
+		<div class="col-lg-offset-1 col-lg-4 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-6 col-xs-12">
+			<form id="balongoContactForm" data-action="{{ path('static_ajax_form') }}">
+				<div class="form-group">
+					<label for="_nombre">Nombre</label>
+					<input type="text" class="form-control" name="_nombre" id="_nombre" required="required" />
+				</div>
+				<div class="form-group">
+					<label for="_email">Email</label>
+					<input type="email" class="form-control" name="_email" id="_email" required="required" />
+				</div>
+				<div class="form-group">
+					<label for="_tel">Tel&eacute;fono</label>
+					<input type="tel" class="form-control" name="_tel" id="_tel" required="required" />
+				</div>
+				<div class="radio">
+					<label for="_empresa">
+						<input type="radio" name="_soy" id="_empresa" value="empresa" /> Somos una empresa
+					</label>
+				</div>
+				<div class="radio">
+					<label for="_comunidad">
+						<input type="radio" name="_soy" id="_comunidad" value="comunidad" checked /> Somos una comunidad
+					</label>
+				</div>
+				<div class="form-group">
+					<label for="_mensaje">Mensaje</label>
+					<textarea class="form-control" name="_mensaje" id="_mensaje" required="required"></textarea>
+				</div>
+				<div class="form-group">
+					<label for="_secret">Eres humano? {{ x }} + {{ y }} =</label>
+					<input type="number" class="form-control" name="_secret" id="_secret" required="required" />
+				</div>
+				<div class="alert-success">
+					Tu mensaje se ha enviado con &eacute;xito! <span class="glyphicon glyphicon-heart"></span>
+				</div>
+				<div class="alert-warning">
+					Ops! Ha ocurrido un error al enviar tu mensaje <span class="glyphicon glyphicon-exclamation-sign"></span>
+				</div>
+				<div class="form-group text-center">
+					<input type="submit" class="btn btn-primary" value="ENVIAR" />
+					<input type="hidden" name="_hidden" value="{{ x + y }}" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0DTWLwGEc_3n9cGjSLuaTB0sPM5yB65E&amp;sensor=false"></script>
+<script type="text/javascript" src="{{ asset('bundles/static/js/static.js') }}"></script>
+{% endblock %}

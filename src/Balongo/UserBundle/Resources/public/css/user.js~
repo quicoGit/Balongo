@@ -1,0 +1,38 @@
+$(document).ready(function(){
+	
+	/**
+	 * FUNCIONES INIT
+	 */
+	initPag();
+	
+	
+	/**
+	 * HEREDA LAS FUNCIONES DE GLOBAL EN ONRESIZE
+	 */
+	window.onresize = function() {
+		initPag();
+		resize();
+	};
+	
+	$('#btnCont button').bind('click', function(){
+		var id = $(this).data('toggle');
+		alert(id);
+		$('.tab').removeClass('active');
+		$('div'+id).addClass('active');
+	});
+	
+});
+
+
+/**
+ * Alargar página si no llega hasta el final.
+ */
+function initPag() {
+	$('div.container').css('height', 'inherit');
+	var	total = window.innerHeight,
+			body = $('html').outerHeight();
+	if (total > body) {
+		height = $('div.container').outerHeight();
+		$('div.container').outerHeight(height+(total-body));
+	}
+};

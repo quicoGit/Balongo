@@ -1,0 +1,29 @@
+{% set pagina = '404' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | 404{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		
+		
+		ERROR 404
+		
+		
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/static/js/static.js') }}"></script>
+{% endblock %}

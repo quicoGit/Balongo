@@ -1,0 +1,118 @@
+{% set pagina = 'usuarios' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Usuarios{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/admin/css/adminStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+	
+		<div class="col-xs-12">
+			<p class="alert alert-success">
+				La acci&oacute;n se ha completado con &eacute;xito.
+			</p>
+			<p class="alert alert-warning">
+				Ups! Ha ocurrido alg&uacute;n error al ejecutar esa acci&oacute;n.
+			</p>
+		</div>
+		
+		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 text-left">
+			{% if usuarios %}
+			<p id="filtrocontenedor"><label for="filtro">Filtrar: </label><input type="text" id="filtro" class="form-control" /></p>
+			{% endif %}
+		</div>
+		<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 text-right">
+			<p><a href="{{ path('admin_c_usuario') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Nuevo usuario</a></p>
+		</div>
+		
+		<div class="col-xs-12">
+			{% if usuarios %}
+			<form class="form_delete_entity" data-action="{{ path('admin_d_usuario') }}" method="post">
+				<table id="entitiestable">
+					<tr id="rowtitle">
+						<th>Apellidos</th>
+						<th>Nombre</th>
+						<th>Email</th>
+						<th>Comunidades</th>
+						<th class="text-right">Modificar</th>
+						<th class="text-right">Eliminar</th>
+					</tr>
+					<tr id="rownotfound">
+						<td colspan="4">No hay coincidencias</td>
+					</tr>
+					{% for u in usuarios %}
+					<tr id="e{{ u.id }}" class="rowentity">
+						<td>{{ u.apellidos }}</td>
+						<td>{{ u.nombre }}</td>
+						<td>{{ u.email }}</td>
+						<td>
+							{% for c in u.comunidades %}
+								{{ c.nombre }}<br>
+							{% endfor %}
+						</td>
+						<td class="text-right">
+							<a href="{{ path('admin_u_usuario', {'id': u.id}) }}" class="btn btn-info">
+								<span class="glyphicon glyphicon-repeat"></span>
+							</a>
+						</td>
+						<td class="text-right">
+							<span class="glyphicon glyphicon-trash"></span> 
+							<input type="checkbox" name="usuarios[]" value="{{ u.id }}" />
+						</td>
+					</tr>
+					{% endfor %}
+					<tr id="rowdelete">
+						<td class="text-right" colspan="6">
+							<button id="modalbutton" class="btn btn-danger" data-target="#delete-modal">Eliminar</button>
+						</td>
+					</tr>
+				</table>
+				<div id="delete-modal" class="modal-container">
+					<div class="modal">
+						<h2><span class="glyphicon glyphicon-exclamation-sign"></span> ¿Est&aacute;s seguro?</h2>
+						<p>
+						Vas a elimnar usuarios cliente, una vez eliminados sus cuentas ser&aacute;n
+						eliminadas de la base de datos y sus cuentas no podr&aacute;n ser recuperadas.
+						</p>
+						<p class="text-right">
+							<button id="modalbutton-close" class="btn btn-default" data-target="#delete-modal">Cancelar</button>
+							<button type="submit" class="btn btn-danger">Eliminar</button>
+						</p>
+					</div>
+				</div>
+			</form>
+			{% else %}
+				<p>No existen usuarios cliente. <a href="{{ path('admin_c_usuario') }}">Crea el primero</a>.</p>
+			{% endif %}
+		</div>
+		
+		
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/admin/js/admin.js') }}"></script>
+{% if app.session.flashbag.get('success') == true %}
+<script>
+	(function(){
+		$(document).ready(function(){
+			$('.alert-success').slideDown(400, function(){
+				window.setTimeout(function(){
+					$('.alert-success').slideUp(400);
+				}, 4000);
+			});
+		});
+	})();
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+Hola {{ usuario.nombre }}.
+
+La administración de fincas Balongo se complace en anunciarte que se te ha concedido una cuenta de usuario en nuestra plataforma.
+
+Para activar tu cuenta de usuario:
+
+1. Accede a {{ path('static_user_activar', {'id': usuario.id, 'salt': usuario.salt}) }}
+2. Modifica tu contraseña.
+3. Accede al sistema.
+
+Un saludo cordial del equipo de administración de fincas BALONGO.

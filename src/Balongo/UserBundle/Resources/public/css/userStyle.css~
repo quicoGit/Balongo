@@ -1,0 +1,12 @@
+div#btnCont span {
+	font-weight: bolder;
+	color: #002360;
+}
+
+div#btnCont {
+	margin: 50px 0 80px 0;
+}
+
+div.tab:not(.active) {
+	display: none;
+}

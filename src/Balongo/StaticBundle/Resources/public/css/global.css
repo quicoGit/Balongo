@@ -1,0 +1,280 @@
+header {
+	background-color: #0067A1;
+}
+
+header img {
+	width: 100%;
+	height: auto;
+}
+
+header address {
+	color: #FFF;
+	vertical-align: middle;
+}
+
+
+div.responsive-menu button{
+	padding: 6px 8px;
+	margin: 10px 3px 10px 20px;
+	vertical-align: middle;
+	background-color: #2289c3;
+	border-radius: 3px;
+	border: 1px solid #002360;
+}
+
+div.responsive-menu button:hover{
+	background-color: #FFF;
+}
+
+div.responsive-menu button span {
+	display: block;
+	width: 20px;
+	border-bottom: 3px solid #002360;
+}
+
+div.responsive-menu button span:not(:last-of-type) {
+	margin-bottom: 4px;	
+}
+
+div.responsive-menu span{
+	vertical-align: middle;
+	color: #FFF;
+	font-size: 16px;
+	font-weight: bolder;
+}
+
+nav {
+	background-color: #004580;
+	padding: 0;
+	border-top: 3px solid #002360;
+	border-bottom: 3px solid #002360;
+}
+
+nav a, nav a:hover, nav a:focus {
+	text-decoration: none;
+}
+
+nav::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-size: 0;
+}
+
+nav > ul > li > a.active {
+	color: #FFF;
+	padding: 15px 20px;
+	display: block;
+	background-color: #002360;
+}
+
+nav > ul > li > a.active:hover {
+	text-decoration: none;
+}
+
+nav > ul > li > a:not(.active) {
+	color: #FFF;
+	padding: 15px 20px;
+	display: block;
+	transition: background-color 0.6s, box-shadow 0.6s;
+	-webkit-transition: background-color 0.6s, box-shadow 0.6s;
+}
+nav > ul > li > a:not(.active):hover {
+	color: #FFF;
+	text-decoration: none;
+	background-color: #0067A1;
+	box-shadow: 0 0 10px #FFF inset;
+}
+
+nav > ul > li {
+	position: relative;
+	padding: 0;
+	font-size: 14px;
+}
+
+nav > ul > li > a.dropdown-toggle > span:last-of-type {
+	font-size: 8px;
+	vertical-align: middle;
+}
+
+nav > ul > li > a.dropdown-toggle:hover {
+	cursor: pointer;
+}
+
+nav > ul > li > a.dropdown-toggle:focus {
+	background-color: #FFF;
+	color: #002360;
+}
+
+footer {
+	background-color: #222;
+	color: #FFF;
+}
+
+footer img {
+	width: 247px;
+	height: 79px;
+}
+
+footer ul {
+	list-style-type: none;
+	font-size: 18px;
+}
+
+footer ul li {
+	padding: 8px 12px;
+	float: left;
+}
+
+footer .mrgtop {
+	margin-top: 20px;
+}
+
+footer a {
+	color: #CCC;
+}
+footer a:hover {
+	color: #FFF;
+}
+
+
+@media screen and (max-width: 767px) {
+
+	/**
+	 * MENU MOBIL
+	 */
+	div.responsive-menu {
+		display: block;
+	}
+	
+	nav > ul {
+		display: none;
+	}
+	
+	nav > ul > li {
+		text-align: center;
+	}
+
+	nav > ul > li > ul.dropdown-menu {
+		position: relative;
+		display: none;
+		width: 100%;
+		padding: 8px 0;
+		background-color: #0067A1;
+	}
+
+	nav > ul > li > ul.dropdown-menu > li {
+		font-size: 14px;
+		width: 100%;
+		background-color: #004580;
+		text-align: right;
+	}
+
+	nav > ul > li > ul.dropdown-menu > li > a {
+		display: block;
+		padding: 15px 20px;
+		color: #FFF;
+	}
+
+	nav > ul > li > ul.dropdown-menu > li > a:hover {
+		background-color: #FFF;
+		text-decoration: none;
+		color: #002360;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	/**
+	 * MENU ESCRITORIO
+	 */
+	div.responsive-menu {
+		display: none;
+	}
+	
+	nav > ul {
+		float: right;
+		display: block;
+	}
+	
+	nav > ul > li {
+		display: inline-block;
+	}
+
+	nav > ul > li > ul.dropdown-menu {
+		position: absolute;
+		display: none;
+		top: 100%;
+		right: 50%;
+		width: 200px;
+		margin-top: 20px;
+		margin-right: -15px;
+		z-index: 90;
+		padding: 8px 0;
+		background-color: #002360;
+		border-radius: 3px 0 3px 3px;
+	}
+
+	nav > ul > li > ul.dropdown-menu::after {
+		display: block;
+		content: '';
+		position: absolute;
+		left: 100%;
+		bottom: 100%;
+		margin-left: -30px;
+		width: 0;
+		height: 0;
+		border-bottom: 15px solid #002360;
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+	}
+
+	nav > ul > li > ul.dropdown-menu > li {
+		font-size: 14px;
+		width: 100%;
+		background-color: #004580;
+	}
+
+	nav > ul > li > ul.dropdown-menu > li > a {
+		display: block;
+		padding: 5px 8px;
+		color: #FFF;
+	}
+
+	nav > ul > li > ul.dropdown-menu > li > a:hover {
+		background-color: #FFF;
+		text-decoration: none;
+		color: #002360;
+	}
+
+}
+
+
+
+
+.alert-success {
+	padding: 8px 12px;
+	border-radius: 8px;
+	border: 1px solid #d6e9c6;
+	margin-bottom: 20px;
+	display: none;
+	color: #468847;
+	background-color: #dff0d8;
+}
+
+.alert-warning {
+	padding: 8px 12px;
+	border-radius: 8px;
+	border: 1px solid #eed3d7;
+	margin-bottom: 20px;
+	display: none;
+	color: #b94a48;
+	background-color: #f2dede;
+}

@@ -1,0 +1,76 @@
+usuario_login_check:
+    pattern: /login_check
+
+usuario_logout:
+    pattern: /logout
+
+
+# SUPER ROUTES
+
+super_index:
+    path:     /super/inicio
+    defaults: { _controller: AdminBundle:Super:index }
+
+super_c_usuario: #CREATE USUARIOS
+    path:     /super/usuarios/nuevo
+    defaults: { _controller: AdminBundle:Super:cUsuarios }
+        
+super_r_usuario: #READ USUARIOS
+    path:     /super/usuarios
+    defaults: { _controller: AdminBundle:Super:rUsuarios }
+    
+super_d_usuario: #DELETE USUARIOS
+    path:     /super/usuarios/eliminar
+    defaults: { _controller: AdminBundle:Super:dUsuarios }
+
+
+
+# ADMIN ROUTES
+    
+admin_c_comunidad: #CREATE COMUNIDADES
+    path:     /administracion/comunidades/nueva
+    defaults: { _controller: AdminBundle:Admin:cComunidades }
+        
+admin_r_comunidad: #READ COMUNIDADES
+    path:     /administracion/comunidades
+    defaults: { _controller: AdminBundle:Admin:rComunidades }
+    
+admin_u_comunidad: #UPDATE COMUNIDADES
+    path:     /administracion/comunidades/actualizar/{id}
+    defaults: { _controller: AdminBundle:Admin:uComunidades }
+    
+admin_d_comunidad: #DELETE USUARIOS
+    path:     /administracion/comunidades/eliminar
+    defaults: { _controller: AdminBundle:Admin:dComunidades }
+    
+admin_c_usuario: #CREATE USUARIOS CLIENTE
+    path:     /administracion/usuarios/nuevo
+    defaults: { _controller: AdminBundle:Admin:cUsuarios }
+        
+admin_r_usuario: #READ USUARIOS CLIENTE
+    path:     /administracion/usuarios
+    defaults: { _controller: AdminBundle:Admin:rUsuarios }
+    
+admin_u_usuario: #UPDATE USUARIOS CLIENTE
+    path:     /administracion/usuarios/actualizar/{id}
+    defaults: { _controller: AdminBundle:Admin:uUsuarios }
+    
+admin_d_usuario: #DELETE USUARIOS CLIENTE
+    path:     /administracion/usuarios/eliminar
+    defaults: { _controller: AdminBundle:Admin:dUsuarios }
+    
+admin_c_mensaje: #CREATE MENSAJES
+    path:     /administracion/mensajes/nuevo
+    defaults: { _controller: AdminBundle:Admin:cMensajes }
+        
+admin_index: #READ MENSAJES
+    path:     /administracion/mensajes
+    defaults: { _controller: AdminBundle:Admin:rMensajes }
+    
+admin_u_mensaje: #UPDATE MENSAJES
+    path:     /administracion/mensajes/actualizar/{id}
+    defaults: { _controller: AdminBundle:Admin:uMensajes }
+    
+admin_d_mensaje: #DELETE MENSAJES
+    path:     /administracion/mensajes/eliminar
+    defaults: { _controller: AdminBundle:Admin:dMensajes }   

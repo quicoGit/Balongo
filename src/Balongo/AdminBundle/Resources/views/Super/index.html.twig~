@@ -1,0 +1,29 @@
+{% set pagina = 'super_inicio' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Super | Inicio{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/admin/css/adminStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		
+		
+		SUPER INICIO
+		
+		
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/admin/js/admin.js') }}"></script>
+{% endblock %}

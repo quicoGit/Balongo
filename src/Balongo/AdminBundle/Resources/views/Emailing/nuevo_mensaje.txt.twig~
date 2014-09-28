@@ -1,0 +1,7 @@
+Hola {{ usuario.nombre }}.
+
+La administración de fincas Balongo te informa que se ha añadido un nuevo mensaje con el título: {{ mensaje.titulo }}.
+
+Puedes acceder a la plataforma para consultar el mensaje completo.
+
+Un saludo cordial del equipo de administración de fincas BALONGO.

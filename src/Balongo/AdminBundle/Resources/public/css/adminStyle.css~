@@ -1,0 +1,87 @@
+body {
+	background: url('../../static/img/halftone.png');
+	background-repeat: repeat;
+	color: #333;
+}
+
+p#filtrocontenedor::after {
+	display: block;
+	content: '';
+	clear: both;
+}
+
+p#filtrocontenedor label {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding: 6px 0;
+}
+
+p#filtrocontenedor input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	float: left;
+	width: 75%;
+}
+
+table#entitiestable {
+	width: 100%;
+}
+
+table#entitiestable tr td, table#entitiestable tr th {
+	padding: 10px 5px;
+}
+
+table#entitiestable tr#rowtitle {
+	border-bottom: 2px solid #002360;
+	color: #002360;
+}
+
+table#entitiestable tr#rownotfound {
+	color: #AC2925;
+	font-weight: bolder;
+	display: none;
+}
+
+table#entitiestable tr.rowentity:hover td {
+	background-color: #E3E3E3;
+}
+
+tr.rowentity a.btn {
+	padding: 3px;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+div.modal-container {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 300;
+}
+
+div.modal {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: fixed;
+	top: -200px;
+	left: 50%;
+	width: 290px;
+	padding: 15px;
+	margin-left: -145px;
+	border-radius: 3px;
+	border: 1px solid #333;
+	background-color: #FFF;
+}
+
+form textarea {
+	max-height: 90px;
+}

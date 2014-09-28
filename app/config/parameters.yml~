@@ -1,0 +1,17 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: balongo
+    database_user: balongo
+    database_password: balongo
+    mailer_transport: gmail
+    mailer_host: ~
+    mailer_user: juallom
+    mailer_password: Ju4NLl0r3T
+    locale: es
+    secret: juwhi34ty374qwjkrfiuerhfieuhr4h7huehu
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true

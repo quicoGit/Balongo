@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="application-name" content="Balongo">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="Juan Lloret, juallom@gmail.com">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+		<title>Balongo{% block title %}{% endblock %}</title>
+	    
+	    <link rel="icon" type="image/png" href="{{ asset('bundles/static/img/balongo-logo-mini.png') }}" />		
+		<link href="{{ asset('bundles/static/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+		<link href="{{ asset('bundles/static/css/global.css') }}" rel="stylesheet" type="text/css">
+	    {% block css %}{% endblock %}	
+		
+	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<header class="jumbotron">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+					<a href="{{ path('static_index') }}" ><img src="{{ asset('bundles/static/img/balongo-logo.png') }}" alt="Logotipo corporativo de la oficna de administración de fincas Balongo" /></a>
+				</div>
+				<address class="col-lg-8 col-md-8 col-sm-6 col-xs-12 text-right">
+					Avda. Europa 8, CC La Noria CA-15<br>
+					03503, BENIDORM, ALICANTE<br>
+					+34 96 680 37 10 <span class="glyphicon glyphicon-earphone"></span><br>
+					+34 96 681 28 66 <span class="glyphicon glyphicon-print"></span><br>
+					fincas@balongo.eu <span class="glyphicon glyphicon-envelope"></span>
+				</address>
+			</div>
+		</header>
+		
+		{% include 'StaticBundle:Primary:header.html.twig' %}
+			
+			
+		{% block contenido %}{% endblock %}
+			
+			
+		{% include 'StaticBundle:Primary:footer.html.twig' %}
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ asset('bundles/static/js/global.js') }}"></script>
+		{% block js %}{% endblock %}
+	</body>
+</html>

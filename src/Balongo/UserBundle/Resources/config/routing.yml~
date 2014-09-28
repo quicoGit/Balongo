@@ -1,0 +1,7 @@
+user_mensaje:
+   pattern:  /mensaje/{id}
+   defaults: { _controller: UserBundle:Default:rMensaje }
+   
+user_perfil:
+   pattern:  /perfil
+   defaults: { _controller: UserBundle:Default:uPerfil }

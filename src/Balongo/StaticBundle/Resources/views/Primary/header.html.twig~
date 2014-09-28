@@ -1,0 +1,38 @@
+<nav>
+	<div class="responsive-menu">
+		<button>
+			<span class="sr-only">Desplegar/Plegar Men&uacute;</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<span>MEN&Uacute;</span>
+	</div>
+	<ul class="nav-menu">
+	{% if is_granted('ROLE_SUPER') %}
+		<li><a{% if pagina == 'inicio' %} class="active"{% endif %} href="{{ path('super_index') }}">INICIO</a></li>
+		<li><a{% if pagina == 'usuarios' %} class="active"{% endif %} href="{{ path('super_r_usuario') }}">USUARIOS</a></li>
+		<li><a class="dropdown-toggle" tabindex="0"><span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="{{ path('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+			</ul>
+		</li>
+	{% elseif is_granted('ROLE_ADMIN') %}
+		<li><a{% if pagina == 'mensajes' %} class="active"{% endif %} href="{{ path('admin_index') }}">MENSAJES</a></li>
+		<li><a{% if pagina == 'comunidades' %} class="active"{% endif %} href="{{ path('admin_r_comunidad') }}">COMUNIDADES</a></li>
+		<li><a{% if pagina == 'usuarios' %} class="active"{% endif %} href="{{ path('admin_r_usuario') }}">USUARIOS</a></li>
+		<li><a class="dropdown-toggle" tabindex="0"><span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Modificar mi perfil</a></li>
+				<li><a href="{{ path('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+			</ul>
+		</li>
+	{% elseif is_granted('ROLE_USER') %}
+	{% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+		<li><a{% if pagina == 'inicio' %} class="active"{% endif %} href="{{ path('static_index') }}">BALONGO</a></li>
+		<li><a{% if pagina == 'conocenos' %} class="active"{% endif %} href="{{ path('static_conocenos') }}">CON&Oacute;CENOS</a></li>
+		<li><a{% if pagina == 'contacto' %} class="active"{% endif %} href="{{ path('static_contacto') }}">CONTACTO</a></li>
+		<li><a{% if pagina == 'login' %} class="active"{% endif %} href="{{ path('static_login') }}">ACCEDER</a>
+	{% endif %}
+	</ul>
+</nav>
