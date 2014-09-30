@@ -50,7 +50,7 @@ class DefaultController extends Controller
     	$comunidades = $user->getComunidades();    	
     	
     	if ( $user->getRol() == 1 || in_array( $comunidad, $comunidades ) ) {
-    		$path = realpath( __DIR__.'/../../../../web/uploads/files').'/'.$archivo->getPath();
+    		$path = realpath( __DIR__.'/../../../../uploads/files').'/'.$archivo->getPath();
 			
 			// Vamos a mostrar un PDF
 			$response = new Response();

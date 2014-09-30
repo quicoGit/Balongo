@@ -199,7 +199,7 @@ class Archivo
     
     protected function getUploadRootDir()
     {
-        return realpath( __DIR__.'/../../../../web/'.$this->getUploadDir() );
+        return realpath( __DIR__.'/../../../../'.$this->getUploadDir() );
     }
 
     protected function getUploadDir()
