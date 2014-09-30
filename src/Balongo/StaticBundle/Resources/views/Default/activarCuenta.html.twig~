@@ -21,8 +21,14 @@
 				{% for f in form %}
 					{{ form_row(f) }}
 				{% endfor %}
-				<div id="security-info" class="form-group">
+				<div id="security-info" class="form-group text-center">
 					Nivel de seguridad: <span>-</span>
+				</div>
+				<div class="text-center">
+					<label for="condiciones">
+					<input type="checkbox" id="condiciones" />
+					He leído y acepto las <a href="{{ path('static_legal') }}">condiciones de uso</a>.
+					</label>
 				</div>
 				<div class="text-center">
 					<input type="submit" value="Activar cuenta" class="btn btn-primary" />
@@ -60,6 +66,14 @@
 			case 3: 	$(e).text('Normal').css('color', '#009EE3'); 		break;
 			case 4: 	$(e).text('Alto').css('color', '#1D70B7'); 		break;
 			case 5: 	$(e).text('Muy alto').css('color', '#5cb85c'); 	break;
+		}
+	});
+	$('input[type="submit"]').attr('disabled', 'disabled');
+	$('#condiciones').bind('change', function(){
+		if ( $(this).is(':checked') ) {
+			$('input[type="submit"]').removeAttr('disabled');
+		} else {
+			$('input[type="submit"]').attr('disabled', 'disabled');
 		}
 	});
 </script>

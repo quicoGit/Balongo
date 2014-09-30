@@ -29,3 +29,7 @@ static_user_activar:
 static_user_activar_email:
     path:     /activar-email/{id}/{salt}
     defaults: { _controller: StaticBundle:Default:activarEmail }
+    
+static_olvidado:
+    path:     /login/reestablecer-acceso
+    defaults: { _controller: StaticBundle:Default:reestablecer }

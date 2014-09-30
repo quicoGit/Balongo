@@ -1,0 +1,9 @@
+Hola {{ usuario.nombre }}.
+
+Has solicitado reestablecer tu contraseña en la plataforma de administración de fincas Balongo. Para ello:
+
+1. Accede a {{ url('static_user_activar', {'id': usuario.id, 'salt': usuario.salt}) }}
+2. Modifica tu contraseña.
+3. Accede al sistema.
+
+Un saludo cordial del equipo de administración de fincas BALONGO.

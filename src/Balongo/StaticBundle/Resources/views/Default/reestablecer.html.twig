@@ -1,0 +1,62 @@
+{% set pagina = 'reestablecer' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+
+{% block title %} | Reestablecer contraseña{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/static/css/staticStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="jumbotron backtexture-login">
+	<div class="row">
+	
+		<div class="col-xs-12">
+			<p class="alert alert-success">
+				Se ha enviado un email a tu dirección de correo electrónico con instrucciones para reestablecer tu contraseña.
+			</p>
+		</div>
+		
+		<div class="login-form-container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
+			<form action="{{ path('static_olvidado') }}" method="post">
+				{% for f in form %}
+					{{ form_row(f) }}
+				{% endfor %}
+				<div class="text-center">
+					<input type="submit" value="Reestablecer contraseña" class="btn btn-primary" />
+				</div>
+			</form>
+		</div><!-- /.login-form-container -->
+		
+	</div>
+</div>
+{% endblock %}
+
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/static/js/static.js') }}"></script>
+<script type="text/javascript">
+	$('form > div').each(function(i, v){
+		$(this).addClass('form-group');
+	});
+</script>
+{% if app.session.flashbag.get('success') == true %}
+<script>
+	(function(){
+		$(document).ready(function(){
+			$('.alert-success').slideDown(400, function(){
+				window.setTimeout(function(){
+					$('.alert-success').slideUp(400);
+				}, 4000);
+			});
+		});
+	})();
+</script>
+{% endif %}
+{% endblock %}

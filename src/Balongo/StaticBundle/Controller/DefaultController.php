@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\SecurityContext;
+use Balongo\AdminBundle\Entity\Usuario;
 
 class DefaultController extends Controller
 {
@@ -156,4 +157,56 @@ class DefaultController extends Controller
 		// NO CUMPLE REQUISITOS. REDIRECT INICIO.
 		return $this->redirect($this->generateUrl('static_index'));
 	}
+	
+	
+	
+	public function reestablecerAction(Request $request) 
+	{
+		$em = $this->getDoctrine()->getManager();
+		
+		$form = $this->createFormBuilder()
+					->add('email', 'email', array(
+		         	'label' => 'Introduce tu dirección de email',
+		         	'attr'=>array('class'=>'form-control'),
+		         	'required' => true
+		         ))
+		         ->getForm();
+		$form->handleRequest($request);
+		
+		if ( $form->isValid() ) {
+			$data = $form->getData();
+			if ( $user = $em->createQuery(
+				"SELECT u FROM AdminBundle:Usuario u WHERE u.email = '".$data['email']."'")->getOneOrNullResult() ) {
+				
+				// ENVIAR EMAIL A LA DIRECCION DE CORREO
+				$user->setActivo( false );
+				$em->persist($user);
+				$em->flush();
+				
+				$message = \Swift_Message::newInstance()
+					->setSubject( 'BALONGO: Reestablecer contraseña.' )
+					->setFrom( 'webmaster@balongo.eu' )
+					->setTo( $user->getEmail() )
+					->setBody(
+						$this->renderView(
+							'AdminBundle:Emailing:reestablecimiento.txt.twig',
+							array(
+								'usuario' => $user
+							)
+						)
+					);
+				$this->get('mailer')->send($message);    		
+		 		$this->get('session')->getFlashBag()->add('success', true);
+			}			
+		}
+		
+		return $this->render(
+			'StaticBundle:Default:reestablecer.html.twig',
+			array(
+				'form' => $form->createView()
+			)
+		);
+	}
+	
+	
 }
