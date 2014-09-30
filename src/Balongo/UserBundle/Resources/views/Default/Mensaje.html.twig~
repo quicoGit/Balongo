@@ -30,7 +30,7 @@
 		<ul class="col-xs-12" style="list-style-type:none;padding-left: 40px;">
 			{% for a in mensaje.archivos %}
 			<li style="margin-bottom: 8px;"> 
-				<a href="#" class="btn btn-success btn-sm">
+				<a href="{{ path('user_descarga_adjunto', {'id':a.id}) }}" class="btn btn-success btn-sm">
 					<span class="glyphicon glyphicon-cloud-download"></span> Descargar
 				</a>
 				<span class="glyphicon glyphicon-paperclip"></span> 

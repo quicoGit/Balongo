@@ -1,0 +1,66 @@
+{% set pagina = 'comunidades' %}
+
+{% extends 'StaticBundle:Primary:base.html.twig' %}
+
+{% block title %} | Mi comunidad{% endblock %}
+
+
+{% block css %}
+<link href="{{ asset('bundles/admin/css/adminStyle.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+
+{% block contenido %}
+<div class="container">
+	<div class="row">
+		
+		<div class="col-xs-12" style="border-bottom: 3px solid #002360;">
+			<h1>{{ comunidad.nombre }}</h1>
+			<p>{{ comunidad.direccion }}</p>
+		</div>
+		
+		{% if mensajes %}
+		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 text-left">
+			<p id="filtrocontenedor"><label for="filtro">Filtrar: </label><input type="text" id="filtro" class="form-control" /></p>
+		</div>
+		{% endif %}
+		
+		<div class="col-xs-12">
+			{% if mensajes %}
+				<table id="entitiestable">
+					<tr id="rowtitle">
+						<th>T&iacute;tulo</th>
+						<th>Fecha</th>
+						<th>Comunidad</th>
+						<th>Archivos</th>
+					</tr>
+					<tr id="rownotfound">
+						<td colspan="4">No hay coincidencias</td>
+					</tr>
+					{% for m in mensajes %}
+					<tr id="e{{ m.id }}" class="rowentity" data-id="{{ m.id }}">
+						<td><a href="{{ path('user_mensaje', {'id':m.id}) }}">{{ m.titulo }}</a></td>
+						<td>{{ m.fecha | date('d/m/Y') }}</td>
+						<td>{{ m.comunidad.nombre }}</td>
+						<td>
+							{% if m.archivos|length > 0 %}
+								{{ m.archivos|length }} <span class="glyphicon glyphicon-paperclip"></span>
+							{% endif %}
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			{% else %}
+				<p>A&uacute;n no existen mensajes en tu comunidad.</p>
+			{% endif %}
+		</div>
+		
+	</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script type="text/javascript" src="{{ asset('bundles/user/js/user.js') }}"></script>
+{% endblock %}

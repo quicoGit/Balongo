@@ -13,23 +13,67 @@ use Balongo\AdminBundle\Entity\Archivo;
 
 class DefaultController extends Controller
 {
+	public function indexAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+		$user = $this->getUser();
+		$com = $user->getComunidades();
+		$comunidades = array();
+		foreach( $com as $c ) {
+			array_push($comunidades, $c);
+		}
+		
+		if ( $id == 'default' ) {
+			$comunidad = $user->getComunidadDefecto();
+		} else {
+			$comunidad = $em->find('AdminBundle:Comunidad', $id);
+			if ( !in_array( $comunidad, $comunidades ) ) {
+				return $this->redirect($this->generateUrl('user_index', array('id'=>'default')));
+			}			
+		}
+		
+		$mensajes = $em->createQuery(
+			'SELECT m FROM AdminBundle:Mensaje m WHERE m.comunidad = '.$comunidad->getId().' ORDER BY m.fecha DESC'
+		)->getResult();
+		
+		return $this->render(
+      	'UserBundle:Default:index.html.twig',
+			array(
+				'comunidad' => $comunidad,
+				'mensajes' => $mensajes,
+				'usuario_cliente' => $this->getUser()
+			)
+    	);
+	}
+
+
+
+
+
     public function rMensajeAction($id)
     {
         $em = $this->getDoctrine()->getManager();
         $mensaje = $em->find('AdminBundle:Mensaje', $id);
         
-        if ( $this->getUser()->getRol() == 1 || in_array( $mensaje->getComunidad(), $this->getUser()->getComunidades() ) )
+         $com = $this->getUser()->getComunidades();
+			$comunidades = array();
+			foreach( $com as $c ) {
+				array_push($comunidades, $c);
+			}
+        
+        if ( $this->getUser()->getRol() == 1 || in_array( $mensaje->getComunidad(), $comunidades ) )
         {
         		return $this->render(
         			'UserBundle:Default:Mensaje.html.twig',
 			 		array(
-			 			'mensaje' => $mensaje
+			 			'mensaje' => $mensaje,
+						'usuario_cliente' => $this->getUser()
 			 		)
     			);
         }
         else
         {
-        		return $this->redirect($this->generateUrl('user_index'));
+        		return $this->redirect($this->generateUrl('user_index', array('id'=>'default')));
         }
     }
     
@@ -74,7 +118,7 @@ class DefaultController extends Controller
     	$rol = $user->getRol();
     	switch($rol){
     		case 1: return $this->redirect($this->generateUrl('admin_index')); 	break;
-    		case 2: return $this->redirect($this->generateUrl('user_index'));		break;
+    		case 2: return $this->redirect($this->generateUrl('user_index', array('id'=>'default')));	break;
     	}
     }
     
@@ -87,7 +131,8 @@ class DefaultController extends Controller
     	return $this->render(
      		'UserBundle:Default:Perfil.html.twig',
 		 	array(
-				'usuario' => $this->getUser()
+				'usuario' => $this->getUser(),
+				'usuario_cliente' => $this->getUser()
 	 		)
 		);
     }

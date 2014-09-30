@@ -83,5 +83,46 @@ div.modal {
 }
 
 form textarea {
-	max-height: 90px;
+	max-height: 120px;
+}
+
+.panel {
+	color: #004580;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 94%;
+	margin: 0 3% 20px 3%;
+}
+
+.panel::after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.panel-success {
+	background: #dff0d8;
+	border: 3px solid #d6e9c6;
+}
+
+.panel-info {
+	background: #d9edf7;
+	border: 3px solid #bce8f1;
+}
+
+.panel-warning {
+	background: #fcf8e3;
+	border: 3px solid #faebcc;
+}
+
+.panel-danger {
+	background: #f2dede;
+	border: 3px solid #ebccd1;
+}
+
+.panel span {
+	font-size: 60px;
+	color: #002360;
+	margin-top: 30px;
 }

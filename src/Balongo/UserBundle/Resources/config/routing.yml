@@ -21,3 +21,7 @@ user_perfil_email:
 user_perfil_pass:
    pattern:  /perfil/modificar-password
    defaults: { _controller: UserBundle:Default:uPerfilPass }
+   
+user_index:
+   pattern:  /area-cliente/comunidad/{id}
+   defaults: { _controller: UserBundle:Default:index }

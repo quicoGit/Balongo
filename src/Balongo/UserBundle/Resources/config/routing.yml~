@@ -2,6 +2,10 @@ user_mensaje:
    pattern:  /mensaje/{id}
    defaults: { _controller: UserBundle:Default:rMensaje }
    
+user_descarga_adjunto:
+   pattern:  /mensaje/descarga-adjunto/{id}
+   defaults: { _controller: UserBundle:Default:descargaAdjunto }
+   
 user_perfil:
    pattern:  /perfil
    defaults: { _controller: UserBundle:Default:uPerfil }
@@ -17,3 +21,7 @@ user_perfil_email:
 user_perfil_pass:
    pattern:  /perfil/modificar-password
    defaults: { _controller: UserBundle:Default:uPerfilPass }
+   
+cliente_index:
+   pattern:  /area-cliente/comunidad/{id}
+   defaults: { _controller: UserBundle:Default:index }

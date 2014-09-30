@@ -28,7 +28,7 @@ class LoginListener
 	public function onKernelResponse(FilterResponseEvent $event) {
 		if ($this->user != null) {
 			if($this->contexto->isGranted('ROLE_USER')) {
-				$portada = $this->router->generate('cliente_index');
+				$portada = $this->router->generate('user_index', array('id'=>'default'));
 			} else if($this->contexto->isGranted('ROLE_ADMIN')) {
 				$portada = $this->router->generate('admin_index');
 			} else if ($this->contexto->isGranted('ROLE_SUPER')) {

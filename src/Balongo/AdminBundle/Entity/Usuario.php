@@ -282,6 +282,16 @@ class Usuario implements UserInterface
     {
         return $this->comunidades;
     }
+    
+    /**
+     * Get comunidadDefecto
+     *
+     * @return \Balongo\AdminBundle\Entity\Comunidad 
+     */
+    public function getComunidadDefecto()
+    {
+        return $this->comunidades[0];
+    }
 
     /**
      * Set emailing

@@ -10,6 +10,7 @@
 	</div>
 	<ul class="nav-menu">
 	{% if is_granted('ROLE_SUPER') %}
+	
 		<li><a{% if pagina == 'inicio' %} class="active"{% endif %} href="{{ path('super_index') }}">INICIO</a></li>
 		<li><a{% if pagina == 'usuarios' %} class="active"{% endif %} href="{{ path('super_r_usuario') }}">USUARIOS</a></li>
 		<li><a class="dropdown-toggle" tabindex="0"><span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
@@ -17,7 +18,9 @@
 				<li><a id="linkLogOut" href="{{ url('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 			</ul>
 		</li>
+		
 	{% elseif is_granted('ROLE_ADMIN') %}
+	
 		<li><a{% if pagina == 'mensajes' %} class="active"{% endif %} href="{{ path('admin_index') }}">MENSAJES</a></li>
 		<li><a{% if pagina == 'comunidades' %} class="active"{% endif %} href="{{ path('admin_r_comunidad') }}">COMUNIDADES</a></li>
 		<li><a{% if pagina == 'usuarios' %} class="active"{% endif %} href="{{ path('admin_r_usuario') }}">USUARIOS</a></li>
@@ -27,7 +30,27 @@
 				<li><a id="linkLogOut" href="{{ url('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 			</ul>
 		</li>
+		
 	{% elseif is_granted('ROLE_USER') %}
+	
+		{% if usuario_cliente.comunidades|length > 1 %}
+		<li><a class="dropdown-toggle" tabindex="0">MIS COMUNIDADES <span class="glyphicon glyphicon-chevron-down"></span></a>
+			<ul class="dropdown-menu">
+				{% for c in usuario_cliente.comunidades %}
+				<li><a href="{{ path('user_index', {'id':c.id}) }}">{{ c.nombre }}</a></li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% else %}
+		<li><a{% if pagina == 'comunidades' %} class="active"{% endif %} href="{{ path('user_index', {'id':'default'}) }}">MI COMUNIDAD</a></li>
+		{% endif %}
+		<li><a class="dropdown-toggle" tabindex="0"><span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="{{ path('user_perfil') }}"><span class="glyphicon glyphicon-user"></span> Modificar mi perfil</a></li>
+				<li><a id="linkLogOut" href="{{ url('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+			</ul>
+		</li>
+	
 	{% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
 		<li><a{% if pagina == 'inicio' %} class="active"{% endif %} href="{{ path('static_index') }}">BALONGO</a></li>
 		<li><a{% if pagina == 'conocenos' %} class="active"{% endif %} href="{{ path('static_conocenos') }}">CON&Oacute;CENOS</a></li>

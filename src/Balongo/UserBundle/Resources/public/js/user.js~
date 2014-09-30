@@ -51,7 +51,75 @@ $(document).ready(function(){
 		ajaxRequest(data, action);
 	});
 	
+	
+	if ( $('tr.rowentity').length ) {
+		$('tr.rowentity').each(function(index, value){
+			var id = $(this).data('id');
+			var text = '';
+			$(this).children().each(function(i, v){
+				text += $(this).text()+' ';
+			});
+			entities[index] = new Entity(id, text);
+		});
+	}
+	
+	
+	if ( $('#filtro').length ) {
+		$('#filtro').val('');
+		$('#filtro').bind('keyup', function(e){
+			e.preventDefault();
+			var s = $(this).val();
+			s = s.replace(/[^A-Za-z0-9áéíóúÁÉÍÓÚàèìòùÀÈÌÒÙñÑïÏöÖüÜçÇ\s\.@]/g, '');
+			s = s.replace(/^\s+|\s+$/g, '');
+			s = s.split(/\s+/);
+			
+			for ( var x = 0; x < entities.length; x++ ) {
+				for ( var y = 0; y < s.length; y++ ) {
+					var regex = new RegExp(s[y], 'i');
+					if ( entities[x].text.match(regex) ) {
+						entities[x].mostrado = true;
+					} else {
+						entities[x].mostrado = false;
+						break;
+					}
+				}
+			}
+			
+			for ( var x = 0; x < entities.length; x++ ) {
+				if ( entities[x].mostrado ) {
+					$('tr#e'+entities[x].id).show();
+				} else {
+					$('tr#e'+entities[x].id).hide();
+				}
+			}
+			
+			var todosHide = true;
+			for ( var x = 0; x < entities.length; x++ ) {
+				if ( entities[x].mostrado ) {
+					todosHide = false;
+					break;
+				}
+			}
+			
+			if ( todosHide ) {
+				$('#rownotfound').show();
+			} else {
+				$('#rownotfound').hide();
+			}
+			
+			initPag();
+		});
+	}
+	
 });
+
+// CLASE ENTITY PARA EL FILTRADO DE ENTIDADES
+var entities = new Array();
+function Entity(id, text) {
+	this.id = id;
+	this.text = text;
+	this.mostrado = true;
+}
 
 
 /**
@@ -85,7 +153,7 @@ function ajaxRequest(data, action) {
 					.slideUp(400);
 				if ( json.desconecta ) {
 					window.setTimeout(function(){
-						$('a#linkLogOut').click();
+						window.location.href = $('a#linkLogOut').attr('href');
 					}, 3000);
 				}
 			} else {

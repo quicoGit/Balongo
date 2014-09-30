@@ -15,8 +15,66 @@
 <div class="container">
 	<div class="row">
 		
+		<h1 class="col-xs-12">Resumen del sitio</h1>
 		
-		SUPER INICIO
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="row">
+				<div class="panel panel-success">
+					<div class="col-xs-4 text-center">
+						<span class="glyphicon glyphicon-user"></span>
+					</div>
+					<div class="col-xs-8">
+						<h2>Usuarios</h2>
+						<p>{{ count_users.cou }} usuarios totales</p>
+						<p>{{ count_admins.cou }} administradores</p>
+						<p>{{ count_users.cou - count_admins.cou }} clientes</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="row">
+				<div class="panel panel-info">
+					<div class="col-xs-4 text-center">
+						<span class="glyphicon glyphicon-home"></span>
+					</div>
+					<div class="col-xs-8">
+						<h2>Comunidades</h2>
+						<p>{{ count_comunidades.cou }} comunidades</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="row">
+				<div class="panel panel-warning">
+					<div class="col-xs-4 text-center">
+						<span class="glyphicon glyphicon-envelope"></span>
+					</div>
+					<div class="col-xs-8">
+						<h2>Mensajes</h2>
+						<p>{{ count_mensajes.cou }} mensajes enviados</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+			<div class="row">
+				<div class="panel panel-danger">
+					<div class="col-xs-4 text-center">
+						<span class="glyphicon glyphicon-paperclip"></span>
+					</div>
+					<div class="col-xs-8">
+						<h2>Archivos</h2>
+						<p>{{ count_archivos.cou }} archivos adjuntos</p>
+						<p>{{ count_kbs.su }}Kb de almacenamiento</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		
 	</div>
@@ -26,4 +84,13 @@
 
 {% block js %}
 <script type="text/javascript" src="{{ asset('bundles/admin/js/admin.js') }}"></script>
+<script>
+	$(function(){
+		var maxHeight = 0;
+		$('div.panel').each(function(i,v){
+			maxHeight = ( maxHeight < $(this).outerHeight() )? $(this).outerHeight() : maxHeight;
+		});
+		$('div.panel').outerHeight(maxHeight);
+	})();
+</script>
 {% endblock %}
