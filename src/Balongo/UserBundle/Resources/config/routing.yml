@@ -2,6 +2,10 @@ user_mensaje:
    pattern:  /mensaje/{id}
    defaults: { _controller: UserBundle:Default:rMensaje }
    
+user_descarga_adjunto:
+   pattern:  /mensaje/descarga-adjunto/{id}
+   defaults: { _controller: UserBundle:Default:descargaAdjunto }
+   
 user_perfil:
    pattern:  /perfil
    defaults: { _controller: UserBundle:Default:uPerfil }

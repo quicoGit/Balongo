@@ -5,3 +5,15 @@ user_mensaje:
 user_perfil:
    pattern:  /perfil
    defaults: { _controller: UserBundle:Default:uPerfil }
+   
+user_perfil_datos:
+   pattern:  /perfil/modificar-datos
+   defaults: { _controller: UserBundle:Default:uPerfilDatos }
+   
+user_perfil_email:
+   pattern:  /perfil/modificar-email
+   defaults: { _controller: UserBundle:Default:uPerfilEmail }
+   
+user_perfil_pass:
+   pattern:  /perfil/modificar-password
+   defaults: { _controller: UserBundle:Default:uPerfilPass }

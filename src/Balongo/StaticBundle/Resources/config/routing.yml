@@ -25,3 +25,7 @@ static_ajax_form:
 static_user_activar:
     path:     /activar/{id}/{salt}
     defaults: { _controller: StaticBundle:Default:activarForm }
+    
+static_user_activar_email:
+    path:     /activar-email/{id}/{salt}
+    defaults: { _controller: StaticBundle:Default:activarEmail }

@@ -14,7 +14,7 @@
 		<li><a{% if pagina == 'usuarios' %} class="active"{% endif %} href="{{ path('super_r_usuario') }}">USUARIOS</a></li>
 		<li><a class="dropdown-toggle" tabindex="0"><span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
 			<ul class="dropdown-menu">
-				<li><a href="{{ path('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+				<li><a id="linkLogOut" href="{{ path('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 			</ul>
 		</li>
 	{% elseif is_granted('ROLE_ADMIN') %}
@@ -23,8 +23,8 @@
 		<li><a{% if pagina == 'usuarios' %} class="active"{% endif %} href="{{ path('admin_r_usuario') }}">USUARIOS</a></li>
 		<li><a class="dropdown-toggle" tabindex="0"><span class="glyphicon glyphicon-cog"></span> <span class="glyphicon glyphicon-chevron-down"></span></a>
 			<ul class="dropdown-menu">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Modificar mi perfil</a></li>
-				<li><a href="{{ path('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
+				<li><a href="{{ path('user_perfil') }}"><span class="glyphicon glyphicon-user"></span> Modificar mi perfil</a></li>
+				<li><a id="linkLogOut" href="{{ path('usuario_logout') }}"><span class="glyphicon glyphicon-off"></span> Cerrar Sesi&oacute;n</a></li>
 			</ul>
 		</li>
 	{% elseif is_granted('ROLE_USER') %}

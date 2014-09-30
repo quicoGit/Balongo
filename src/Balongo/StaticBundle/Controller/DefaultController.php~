@@ -119,7 +119,7 @@ class DefaultController extends Controller
 					$em->persist($user);
     				$em->flush();
 					
-					$this->get('session')->getFlashBag()->add('success', true);
+					$this->get('session')->getFlashBag()->add('cuenta_success', true);
     				return $this->redirect($this->generateUrl('static_login'));
 				}
 			
@@ -129,10 +129,30 @@ class DefaultController extends Controller
 						'id' => $id,
 						'salt' => $salt
 					)
-				);			
+				);
 			
 			}
 		}
+		// NO CUMPLE REQUISITOS. REDIRECT INICIO.
+		return $this->redirect($this->generateUrl('static_index'));
+	}
+	
+	public function activarEmailAction($id, $salt)
+	{
+		$em = $this->getDoctrine()->getManager();
+		$user = $em->find('AdminBundle:Usuario', $id);
+		
+		if ( $salt == $user->getSalt() ) {
+			
+			$user->setActivo( true );
+			$em->persist( $user );
+			$em->flush();
+		
+			$this->get('session')->getFlashBag()->add('email_success', true);
+    		return $this->redirect($this->generateUrl('static_login'));
+		
+		}
+		
 		// NO CUMPLE REQUISITOS. REDIRECT INICIO.
 		return $this->redirect($this->generateUrl('static_index'));
 	}

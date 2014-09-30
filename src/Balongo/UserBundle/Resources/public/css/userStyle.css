@@ -9,8 +9,12 @@ div#btnCont span {
 	color: #002360;
 }
 
+div.alert {
+	margin-top: 20px;
+}
+
 div#btnCont {
-	margin: 50px 0 80px 0;
+	margin: 20px 0 80px 0;
 }
 
 div.tab:not(.active) {

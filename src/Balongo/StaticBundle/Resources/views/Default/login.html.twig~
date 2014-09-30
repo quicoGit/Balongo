@@ -17,8 +17,11 @@
 	<div class="row">
 		
 		<div class="col-xs-12">
-			<p class="alert alert-success">
+			<p class="alert alert-success cuenta">
 				Tu cuenta de usuario ha sido activada con &eacute;xito. Accede!
+			</p>
+			<p class="alert alert-success email">
+				Tu email ha sido verificado con &eacute;xito. Accede!
 			</p>
 		</div>
 		
@@ -57,4 +60,18 @@
 
 {% block js %}
 <script type="text/javascript" src="{{ asset('bundles/static/js/static.js') }}"></script>
+{% if app.session.flashbag.get('cuenta_success') == true %}
+<script>
+	(function(){
+		$(document).ready(function(){
+			$('.alert-success').slideDown(400, function(){
+				window.setTimeout(function(){
+					$('.alert-success').slideUp(400);
+				}, 4000);
+			});
+		});
+	})();
+</script>
+{% elseif app.session.flashbag.get('email_success') == true %}
+{% endif %}
 {% endblock %}

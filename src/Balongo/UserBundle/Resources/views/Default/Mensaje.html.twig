@@ -15,12 +15,13 @@
 <div class="container">
 	<div class="row">
 	
-		<h1 class="col-xs-12">{{ mensaje.titulo }}</h1>
-		<div class="col-xs-6">
+		<h1 class="col-xs-8">{{ mensaje.titulo }}</h1>
+		<div class="col-xs-4 text-right">
 			<h2>{{ mensaje.fecha|date('d/m/Y') }}</h2>
 		</div>
-		<div class="col-xs-6 text-right">
+		<div class="col-xs-12" style="border-bottom: 3px solid #002360; border-top: 3px solid #002360;">
 			<h2>{{ mensaje.comunidad.nombre }}</h2>
+			<p>{{ mensaje.comunidad.direccion }}</p>
 		</div>
 		<p class="col-xs-12">
 			{{ mensaje.cuerpo }}
@@ -29,7 +30,7 @@
 		<ul class="col-xs-12" style="list-style-type:none;padding-left: 40px;">
 			{% for a in mensaje.archivos %}
 			<li style="margin-bottom: 8px;"> 
-				<a href="#" class="btn btn-success btn-sm">
+				<a href="{{ path('user_descarga_adjunto', {'id':a.id}) }}" class="btn btn-success btn-sm">
 					<span class="glyphicon glyphicon-cloud-download"></span> Descargar
 				</a>
 				<span class="glyphicon glyphicon-paperclip"></span> 
