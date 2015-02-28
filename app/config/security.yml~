@@ -27,13 +27,13 @@ security:
     providers:
         chain_provider:
             chain:
-                providers: [user_db, in_memory]
-        user_db:
-            entity: { class: Balongo\AdminBundle\Entity\Usuario, property: email }
+                providers: [in_memory, user_db]
         in_memory:
             memory:
                 users:
-                    - { name: webmaster@balongo.eu, password: balongo, roles: 'ROLE_SUPER' }
+                    - { name: webmaster@balongo.eu, password: B4long0$WEBmaster%&404, roles: 'ROLE_SUPER' }
+        user_db:
+            entity: { class: Balongo\AdminBundle\Entity\Usuario, property: email }
 
     encoders:
         Balongo\AdminBundle\Entity\Usuario: { algorithm: sha512, iterations: 10 }

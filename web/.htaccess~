@@ -31,9 +31,6 @@ DirectoryIndex app.php
     #   following RewriteCond (best solution)
     RewriteCond %{ENV:REDIRECT_STATUS} ^$
     RewriteRule ^app\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
-    
-	 RewriteCond %{HTTP_HOST} !^www\.
-	 RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
     # If the requested filename exists, simply serve it.
     # We only want to let Apache serve files and not directories.

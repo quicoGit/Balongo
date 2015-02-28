@@ -319,7 +319,7 @@ div#slide-loader {
 #offipic {
 	padding-top: 150px;
 	padding-bottom: 150px;
-	background: url('../img/office.jpg');
+	background: url('../img/oficina_balongo.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -345,26 +345,6 @@ textarea {
 	width: 100%;
 	min-height: 150px;
 	max-height: 250px;
-}
-
-.alert-success {
-	padding: 8px 12px;
-	border-radius: 8px;
-	background-color: #def1de;
-	border: 1px solid #5cb85c;
-	color: #5cb85c;
-	margin-bottom: 20px;
-	display: none;
-}
-
-.alert-warning {
-	padding: 8px 12px;
-	border-radius: 8px;
-	background-color: #fceedb;
-	border: 1px solid #f0ad4e;
-	color: #f0ad4e;
-	margin-bottom: 20px;
-	display: none;
 }
 
 #contadd p {
